@@ -1,0 +1,25 @@
+[package]
+name = "avr-rust-examples"
+version = "0.1.0"
+authors = ["et"]
+edition = '2018'
+
+[dependencies]
+avr-std-stub = "1.0"
+
+[dependencies.atmega328p-hal]
+git = "https://github.com/rahix/avr-hal"
+rev = "a20277873a8102998d5fd69743771bd8c0aa9423"
+features = ["atmega328p", "rt"]
+
+[dependencies.avr-hal-generic]
+git = "https://github.com/rahix/avr-hal"
+rev = "a20277873a8102998d5fd69743771bd8c0aa9423"
+
+[profile.dev]
+opt-level = "s"
+debug = false
+debug-assertions = false
+overflow-checks = false
+lto = true
+panic = "abort"
